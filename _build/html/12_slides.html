@@ -1,0 +1,2198 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>ADASモデル：景気循環の定量的分析 &#8212; My sample book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown-notebooks.html">
+   Notebooks with MyST Markdown
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   ADASモデル：景気循環の定量的分析
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/12_slides.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F12_slides.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/12_slides.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   データとショックに関する仮定
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   カリブレーション
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     カリブレーションとは
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     スイッチの調整のための準備
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c">
+     最初のスイッチ：
+     <span class="math notranslate nohighlight">
+      \(c\)
+     </span>
+     の値
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a">
+     ２つ目のスイッチ：
+     <span class="math notranslate nohighlight">
+      \(a\)
+     </span>
+     の値
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sigma-v-sigma-u">
+     ３つ目と４つ目のスイッチ：
+     <span class="math notranslate nohighlight">
+      \(\sigma_v\)
+     </span>
+     と
+     <span class="math notranslate nohighlight">
+      \(\sigma_u\)
+     </span>
+     （ショックの標準偏差）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   コードの基本形
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   ADASモデルの安定性
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   インパルス反応関数
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#v-t">
+     総供給ショック（
+     <span class="math notranslate nohighlight">
+      \(v_t\)
+     </span>
+     ）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#u-t">
+     総需要ショック（
+     <span class="math notranslate nohighlight">
+      \(u_t\)
+     </span>
+     ）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     総供給ショック＋総需要ショック
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   確率的シミュレーション
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   データの特徴１〜３を再現できるか
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gdp">
+     GDPと価格水準の％乖離の標準偏差
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     自己相関係数
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#py">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       p
+      </span>
+     </code>
+     と
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       y
+      </span>
+     </code>
+     の％乖離の相関係数
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     結果のまとめ
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ar-1">
+     総需要・総供給ショックが
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       AR(1)
+      </span>
+     </code>
+     の場合
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adas-2">
+     ADASモデルの評価：２つの推論方法
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inductive-inference">
+       帰納的推論（inductive inference）
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#deductive-inference">
+       演繹的推論（deductive inference）
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id13">
+   定量的な問
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     予測誤差
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     予測誤差の分散分解：考え方
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id16">
+     GDPの％乖離
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     価格水準の％乖離
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id18">
+   まとめ
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>ADASモデル：景気循環の定量的分析</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   データとショックに関する仮定
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   カリブレーション
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     カリブレーションとは
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     スイッチの調整のための準備
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c">
+     最初のスイッチ：
+     <span class="math notranslate nohighlight">
+      \(c\)
+     </span>
+     の値
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a">
+     ２つ目のスイッチ：
+     <span class="math notranslate nohighlight">
+      \(a\)
+     </span>
+     の値
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sigma-v-sigma-u">
+     ３つ目と４つ目のスイッチ：
+     <span class="math notranslate nohighlight">
+      \(\sigma_v\)
+     </span>
+     と
+     <span class="math notranslate nohighlight">
+      \(\sigma_u\)
+     </span>
+     （ショックの標準偏差）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   コードの基本形
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   ADASモデルの安定性
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   インパルス反応関数
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#v-t">
+     総供給ショック（
+     <span class="math notranslate nohighlight">
+      \(v_t\)
+     </span>
+     ）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#u-t">
+     総需要ショック（
+     <span class="math notranslate nohighlight">
+      \(u_t\)
+     </span>
+     ）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     総供給ショック＋総需要ショック
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   確率的シミュレーション
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   データの特徴１〜３を再現できるか
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gdp">
+     GDPと価格水準の％乖離の標準偏差
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     自己相関係数
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#py">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       p
+      </span>
+     </code>
+     と
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       y
+      </span>
+     </code>
+     の％乖離の相関係数
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     結果のまとめ
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ar-1">
+     総需要・総供給ショックが
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       AR(1)
+      </span>
+     </code>
+     の場合
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adas-2">
+     ADASモデルの評価：２つの推論方法
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inductive-inference">
+       帰納的推論（inductive inference）
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#deductive-inference">
+       演繹的推論（deductive inference）
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id13">
+   定量的な問
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     予測誤差
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     予測誤差の分散分解：考え方
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id16">
+     GDPの％乖離
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     価格水準の％乖離
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id18">
+   まとめ
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="adas">
+<h1>ADASモデル：景気循環の定量的分析<a class="headerlink" href="#adas" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>JupyterLite用の<code class="docutils literal notranslate"><span class="pre">import</span></code>を実行</p></li>
+<li><p>JupyterLab Desktop用の<code class="docutils literal notranslate"><span class="pre">import</span></code>を実行</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">japanize_matplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">py4macro</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>このトピックの目的</strong></p>
+<ul>
+<li><p>回帰分析，差分方程式，ランダム変数の３つのツールを使い，総需要・総供給（ADAS）モデルの定量的（数量的）分析をおこなう。</p></li>
+<li><p>定量的分析の内容</p>
+<ul>
+<li><p>ADASモデルのパラメータの値をデータの特徴と整合的になるように定める（カリブレーション）</p></li>
+<li><p>ADASモデルの安定性を確認する</p></li>
+<li><p>総需要ショックと総供給ショックの産出量と価格に対する影響をインパルス反応関数を使い考察する。</p></li>
+<li><p>確率的シミュレーションをおこない，データの特徴を再現できるかを検討し，ADASモデルを評価する。</p></li>
+<li><p>次の定量的な問を検討する。</p>
+<blockquote>
+<div><p>GDPと価格水準の％乖離の変動は，何パーセントが需要ショックにより引き起こされ，何パーセントが供給ショックに起因するのか？</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><br><br><br><br><br><br><br></p>
+<p>
+    <font size="20"><center>復習</center></font>
+</p>
+<br><br><br><br><br><br><br><ul class="simple">
+<li><p>総需要（AD）曲線：<span class="math notranslate nohighlight">\(Y_t=b-c P_t + u_t\)</span></p></li>
+<li><p>総供給（AS）曲線：<span class="math notranslate nohighlight">\(P_t=P_{t}^e+a(Y_t-Y_{*})+v_t\)</span></p></li>
+</ul>
+<br>
+<table><tr>
+<td width="30%"> 
+    総供給ショック
+    （$v_t\uparrow$）
+</td>
+<td> 
+  <p align="left®">
+    <img src="./figure/adas0.jpeg" width="70%">
+  </p> 
+</td>
+</tr></table><p><span class="math notranslate nohighlight">\(y_t=\log(Y_t)-\log(Y_*)\)</span>（GDPのトレンドからの％乖離）と<span class="math notranslate nohighlight">\(p_t=\log(P_t)-\log(P_*)\)</span>（デフレーターのトレンドからの％乖離）を使うと</p>
+<ul class="simple">
+<li><p>総需要（AD）曲線：<span class="math notranslate nohighlight">\(y_t=-cp_t + u_t\)</span></p></li>
+<li><p>総供給（AS）曲線：<span class="math notranslate nohighlight">\(p_t = p_{t-1}+ay_t +v_t\)</span></p></li>
+</ul>
+<br>
+<table><tr>
+<td width="30%"> 
+    総供給ショック
+    （$v_t\uparrow$）
+</td>
+<td> 
+  <p align="left">
+    <img src="./figure/adas1.jpeg" width="70%">
+  </p> 
+</td>
+</tr></table>
+<section id="id1">
+<h2>データとショックに関する仮定<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(u_t\)</span>と<span class="math notranslate nohighlight">\(v_t\)</span>はトレンド（<span class="math notranslate nohighlight">\(Y_*\)</span>と<span class="math notranslate nohighlight">\(P_*\)</span>）に影響を与えない。</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">py4macro</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="s1">&#39;jpn-q&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;gdp&#39;</span><span class="p">,</span><span class="s1">&#39;deflator&#39;</span><span class="p">]:</span>    
+    <span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="o">+</span><span class="s1">&#39;_cycle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="p">])</span> <span class="o">-</span> <span class="n">py4macro</span><span class="o">.</span><span class="n">trend</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="p">])</span> <span class="p">)</span>
+
+<span class="n">ax_</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;gdp_cycle&#39;</span><span class="p">,</span><span class="s1">&#39;deflator_cycle&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax_</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/12_slides_9_0.png" src="_images/12_slides_9_0.png" />
+</div>
+</div>
+<p>データの特徴１</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_std</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;gdp_cycle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">p_std</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;deflator_cycle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;GDPのトレンドからの％乖離の標準偏差：</span><span class="si">{</span><span class="n">y_std</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;デフレータのトレンドからの％乖離の標準偏差：</span><span class="si">{</span><span class="n">p_std</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GDPのトレンドからの％乖離の標準偏差：0.014765
+デフレータのトレンドからの％乖離の標準偏差：0.006958
+</pre></div>
+</div>
+</div>
+</div>
+<p>データの特徴２</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_autocorr</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;gdp_cycle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">autocorr</span><span class="p">()</span>
+<span class="n">p_autocorr</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;deflator_cycle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">autocorr</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;GDPのトレンドからの％乖離の自己相関係数：</span><span class="si">{</span><span class="n">y_autocorr</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;デフレータのトレンドからの％乖離の自己相関係数：</span><span class="si">{</span><span class="n">p_autocorr</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GDPのトレンドからの％乖離の自己相関係数：0.681
+デフレータのトレンドからの％乖離の自己相関係数：0.829
+</pre></div>
+</div>
+</div>
+</div>
+<p>データの特徴３</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yp_corr</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;gdp_cycle&#39;</span><span class="p">,</span> <span class="s1">&#39;deflator_cycle&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;GDPとデフレータの％乖離の相関係数：</span><span class="si">{</span><span class="n">yp_corr</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GDPとデフレータの％乖離の相関係数：-0.234
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tmp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">tmp</span><span class="p">[</span><span class="s1">&#39;deflator_cycle_lag_5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="s1">&#39;deflator_cycle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1"># tmp.iloc[:6, -3:]</span>
+<span class="n">ax_</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;gdp_cycle&#39;</span><span class="p">,</span><span class="s1">&#39;deflator_cycle_lag_5&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax_</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/12_slides_16_0.png" src="_images/12_slides_16_0.png" />
+</div>
+</div>
+</section>
+<section id="id2">
+<h2>カリブレーション<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>データに基づき，モデルの次の4つのパラメーターの値を決めていく</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(a\)</span>，<span class="math notranslate nohighlight">\(c\)</span>，<span class="math notranslate nohighlight">\(\sigma_u\)</span>，<span class="math notranslate nohighlight">\(\sigma_v\)</span> （標準偏差）</p></li>
+</ul>
+<p>パラメーターの値の決め方には主に次の２つある。</p>
+<ol class="simple">
+<li><p>データに基づいて計量経済学的な手法などを用いて推定した結果を使う。</p></li>
+<li><p>既存の実証研究で報告され推定値を使う。</p></li>
+</ol>
+<section id="id3">
+<h3>カリブレーションとは<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>２つの体重計があるとしよう。</p>
+<ul class="simple">
+<li><p>市販の正確な体重計で誤差はない。</p></li>
+<li><p>もう一つは自作の体重計で，作ったばかりなので精度に欠ける。</p>
+<ul>
+<li><p>精度を高めるためにスイッチが取り付けられている。</p></li>
+</ul>
+</li>
+</ul>
+<p>基準となる機器に基づいて測定器の誤差をなくすための調整をおこなうことを<strong>カリブレーション</strong>と呼ぶ。</p>
+<p>AD-ASモデルに応用する。</p>
+<ul class="simple">
+<li><p>市販の正確な体重計　→　日本経済</p></li>
+<li><p>手作り体重計　→　ADASモデル</p></li>
+<li><p>手作り体重計のスイッチ　→　ADASモデルのパラメーター（外生変数）</p></li>
+<li><p>スイッチの調整　→　パラメーターの値の設定</p></li>
+<li><p>カリブレーションで使うデータ</p>
+<ul>
+<li><p>自分の体重　→　景気循環に関するデータ</p></li>
+</ul>
+</li>
+<li><p>評価方法</p>
+<ul>
+<li><p>他の人の体重を測り手作り体重計の誤差を確認　→　ADASモデルのパラメーターの設定に使われていないデータの特徴１〜３をどれだけ説明できるかの確認</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id4">
+<h3>スイッチの調整のための準備<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+y_t&amp;=-c p_t + u_t\tag{AD曲線}\\
+p_{t}&amp;=p_{t-1}+ay_{t}+v_{t} \tag{AS曲線}
+\end{align*}\end{split}\]</div>
+<p>(AD曲線) → (AS曲線)（<span class="math notranslate nohighlight">\(y_t\)</span>をなくす）</p>
+<div class="math notranslate nohighlight">
+\[
+p_{t}
+=h p_{t-1}+e_{pt}
+\tag{回帰式１}
+\]</div>
+<p>ここで</p>
+<div class="math notranslate nohighlight">
+\[
+h\equiv\frac{1}{1+a c}&lt;1,
+\qquad\quad
+e_{pt}\equiv h\left(a u_{t}+v_{t}\right)
+\]</div>
+<p>回帰分析に基づいて<span class="math notranslate nohighlight">\(h\)</span>の推定値求める。</p>
+<p><code class="docutils literal notranslate"><span class="pre">df</span></code>のメソッド<code class="docutils literal notranslate"><span class="pre">.shift()</span></code>を使って<code class="docutils literal notranslate"><span class="pre">deflator_cycle</span></code>を１期ずらした列を<code class="docutils literal notranslate"><span class="pre">deflator_cycle_lag</span></code>として<code class="docutils literal notranslate"><span class="pre">df</span></code>に追加</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;deflator_cycle_lag&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;deflator_cycle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>price</th>
+      <th>deflator</th>
+      <th>gdp_cycle</th>
+      <th>deflator_cycle</th>
+      <th>deflator_cycle_lag</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1980-03-31</th>
+      <td>71.015699</td>
+      <td>91.2</td>
+      <td>0.003269</td>
+      <td>-0.025798</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1980-06-30</th>
+      <td>72.907806</td>
+      <td>93.4</td>
+      <td>-0.010845</td>
+      <td>-0.006555</td>
+      <td>-0.025798</td>
+    </tr>
+    <tr>
+      <th>1980-09-30</th>
+      <td>73.898630</td>
+      <td>94.4</td>
+      <td>0.000457</td>
+      <td>-0.000482</td>
+      <td>-0.006555</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_h</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;deflator_cycle ~ -1 + deflator_cycle_lag&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res_h</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================================
+                         coef    std err          t      P&gt;|t|      [0.025      0.975]
+--------------------------------------------------------------------------------------
+deflator_cycle_lag     0.8003      0.042     19.121      0.000       0.718       0.883
+======================================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Durbin-Watson</span></code>は<code class="docutils literal notranslate"><span class="pre">1.685</span></code>であり残差の系列相関は排除できる。</p></li>
+<li><p>AR(1)は弱重属性（weakly dependent）を満たす →  <span class="math notranslate nohighlight">\(h\)</span>の推定値である<span class="math notranslate nohighlight">\(\hat{h}\)</span>は一致性を満たす。</p></li>
+<li><p>ブルーシュペーガン検定とホワイト検定</p>
+<ul>
+<li><p>H0（均一分散）を棄却　→  不均一分散と結論する。</p></li>
+</ul>
+</li>
+<li><p>不均一頑健推定：推定値<code class="docutils literal notranslate"><span class="pre">h</span></code>の<code class="docutils literal notranslate"><span class="pre">t</span></code>検定は有効　→ 統計的に優位</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hhat</span> <span class="o">=</span> <span class="n">res_h</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># hの推定値</span>
+<span class="n">ep</span> <span class="o">=</span> <span class="n">res_h</span><span class="o">.</span><span class="n">resid</span>        <span class="c1"># 回帰式(1)の残差</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="c">
+<h3>最初のスイッチ：<span class="math notranslate nohighlight">\(c\)</span>の値<a class="headerlink" href="#c" title="Permalink to this headline">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+y_t&amp;=-c p_t + u_t\tag{AD曲線}\\
+p_{t}&amp;=p_{t-1}+ay_{t}+v_{t} \tag{AS曲線}
+\end{align*}\end{split}\]</div>
+<p>(AS曲線) → (AD曲線)（<span class="math notranslate nohighlight">\(p_t\)</span>をなくす）</p>
+<div class="math notranslate nohighlight">
+\[
+y_t = dp_{t-1} + e_{yt}
+\tag{回帰式２}
+\]</div>
+<p>ここで</p>
+<div class="math notranslate nohighlight">
+\[
+d\equiv -ch,
+\qquad\quad
+e_{yt}\equiv hu_t-chv_t
+\]</div>
+<p>回帰分析に基づいて<span class="math notranslate nohighlight">\(d\)</span>の推定値求める。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_d</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;gdp_cycle ~ -1 + deflator_cycle_lag&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res_d</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================================
+                         coef    std err          t      P&gt;|t|      [0.025      0.975]
+--------------------------------------------------------------------------------------
+deflator_cycle_lag    -0.5437      0.160     -3.388      0.001      -0.860      -0.227
+======================================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Durbin-Watson</span></code>は<code class="docutils literal notranslate"><span class="pre">0.696</span></code>であり正の系列相関が疑われる。</p></li>
+<li><p>ブルーシュペーガン検定とホワイト検定：不均一分散の可能性を排除できない</p></li>
+<li><p>不均一系列相関頑健推定（<code class="docutils literal notranslate"><span class="pre">HAC</span></code>）：推定値<code class="docutils literal notranslate"><span class="pre">h</span></code>の<code class="docutils literal notranslate"><span class="pre">t</span></code>検定は有効　→　統計的に優位</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dhat</span> <span class="o">=</span> <span class="n">res_d</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># dの推定値</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(-d\equiv ch\)</span>となるため</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{c} = -\frac{\hat{d}}{\hat{h}}
+\]</div>
+<p>この値を<code class="docutils literal notranslate"><span class="pre">chat</span></code>に割り当てよう。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chat</span> <span class="o">=</span> <span class="o">-</span><span class="n">dhat</span> <span class="o">/</span> <span class="n">hhat</span>
+<span class="n">chat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6792737658050553
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ey</span> <span class="o">=</span> <span class="n">res_d</span><span class="o">.</span><span class="n">resid</span>        <span class="c1"># 回帰式(2)の残差</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a">
+<h3>２つ目のスイッチ：<span class="math notranslate nohighlight">\(a\)</span>の値<a class="headerlink" href="#a" title="Permalink to this headline">#</a></h3>
+<p><span class="math notranslate nohighlight">\(h=\dfrac{1}{1+ac}\)</span>となるため</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{a} = \left(\dfrac{1}{\hat{h}}-1\right)\frac{1}{\hat{c}}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ahat</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">hhat</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">chat</span>
+<span class="n">ahat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3672412758026918
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sigma-v-sigma-u">
+<h3>３つ目と４つ目のスイッチ：<span class="math notranslate nohighlight">\(\sigma_v\)</span>と<span class="math notranslate nohighlight">\(\sigma_u\)</span>（ショックの標準偏差）<a class="headerlink" href="#sigma-v-sigma-u" title="Permalink to this headline">#</a></h3>
+<p>回帰分析の誤差項の定義に残差（<span class="math notranslate nohighlight">\(\hat{e}_{yt}\)</span>，<span class="math notranslate nohighlight">\(\hat{e}_{pt}\)</span>）と推定値（<span class="math notranslate nohighlight">\(\hat{a}\)</span>，<span class="math notranslate nohighlight">\(\hat{c}\)</span>）を使う</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\hat{e}_{yt}&amp;=\hat{h}u_t-\hat{c}\hat{h}v_t\\
+\hat{e}_{pt}&amp;=\hat{a}\hat{h}u_{t}+\hat{h}v_{t}
+\end{align*}
+\end{split}\]</div>
+<p>線形連立方程式として考えて，<span class="math notranslate nohighlight">\(u_t\)</span>と<span class="math notranslate nohighlight">\(v_t\)</span>を計算することができる。</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\hat{u}_t=\hat{c}\hat{e}_{pt}+\hat{e}_{yt}\\
+\hat{v}_t=\hat{e}_{pt}-\hat{a}\hat{e}_{yt}
+\end{align*}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\hat{u}_t\)</span>と<span class="math notranslate nohighlight">\(\hat{v}_t\)</span>は<span class="math notranslate nohighlight">\(u_t\)</span>と<span class="math notranslate nohighlight">\(u_t\)</span>の推定値。以下では，</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\hat{u}_t\)</span>を計算　→　<span class="math notranslate nohighlight">\(\sigma_u\)</span>の計算</p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{v}_t\)</span>を計算　→　<span class="math notranslate nohighlight">\(\sigma_v\)</span>の計算</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vt</span> <span class="o">=</span> <span class="n">ep</span> <span class="o">-</span> <span class="n">ahat</span><span class="o">*</span><span class="n">ey</span>
+<span class="n">v_std</span> <span class="o">=</span> <span class="n">vt</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">v_std</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.006607538577733419
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ut</span> <span class="o">=</span> <span class="n">ey</span> <span class="o">+</span> <span class="n">chat</span><span class="o">*</span><span class="n">ep</span>
+<span class="n">u_std</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">u_std</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.014412448205984505
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id5">
+<h2>コードの基本形<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">lst</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a</span>
+
+        <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col&#39;</span><span class="p">:</span> <span class="n">lst</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_func</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="id6">
+<h2>ADASモデルの安定性<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<p><span class="math notranslate nohighlight">\(u_t=v_t=0\)</span>，<span class="math notranslate nohighlight">\(t=0,1,2,\cdots\)</span>としよう。</p>
+<div class="math notranslate nohighlight">
+\[
+p_{t}=hp_{t-1}
+\qquad\quad
+y_t=-cp_t 
+\]</div>
+<ul class="simple">
+<li><p>任意の初期値から安定性の確認</p></li>
+<li><p>初期値は<span class="math notranslate nohighlight">\(p_0\)</span>のみで良い</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>t=0</p></th>
+<th class="head"><p>t=1</p></th>
+<th class="head"><p>t=2</p></th>
+<th class="head"><p>t=3</p></th>
+<th class="head"><p>…</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>デフレーター</p></td>
+<td><p><span class="math notranslate nohighlight">\(p_0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(p_1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(p_2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(p_3\)</span></p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p>GDP</p></td>
+<td><p><span class="math notranslate nohighlight">\(y_0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(y_1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(y_2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(y_3\)</span></p></td>
+<td><p>…</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">adas_model</span><span class="p">(</span><span class="n">p0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">ahat</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">chat</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;引数</span>
+<span class="sd">        p0: pの初期値（デフォルト：0）</span>
+<span class="sd">        n: ループの回数（デフォルト：20）</span>
+<span class="sd">        a: aの値（デフォルト：ahat）</span>
+<span class="sd">        c: cの値（デフォルト：chat）</span>
+<span class="sd">    戻り値：</span>
+<span class="sd">        yとpのDataFrame&quot;&quot;&quot;</span>
+
+    <span class="c1"># ========== pの差分方程式の右辺 ==========</span>
+    <span class="k">def</span> <span class="nf">price_func</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">)</span>  <span class="c1"># hの値</span>
+        <span class="k">return</span> <span class="n">h</span><span class="o">*</span><span class="n">p</span>
+        
+    <span class="c1"># ========== yの初期値 ==========</span>
+    <span class="n">y0</span> <span class="o">=</span> <span class="o">-</span> <span class="n">c</span> <span class="o">*</span> <span class="n">p0</span>
+
+    <span class="c1"># ========== forループのアップデート用変数 ==========</span>
+    <span class="c1"># yのアップデート用の変数は必要ない</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">p0</span>
+    
+    <span class="c1"># ========== yとpの値を格納するリスト ==========</span>
+    <span class="n">y_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">y0</span><span class="p">]</span>
+    <span class="n">p_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">p0</span><span class="p">]</span>
+
+    <span class="c1"># ========== ショック後 ==========</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">price_func</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="n">c</span><span class="o">*</span><span class="n">p</span>
+
+        <span class="n">y_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">p_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    
+    <span class="c1"># DataFrameを返す</span>
+    <span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="n">y_list</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">:</span><span class="n">p_list</span><span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dic</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adas_model</span><span class="p">(</span><span class="n">p0</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/12_slides_49_0.png" src="_images/12_slides_49_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adas_model</span><span class="p">(</span><span class="n">p0</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/12_slides_50_0.png" src="_images/12_slides_50_0.png" />
+</div>
+</div>
+</section>
+<section id="id7">
+<h2>インパルス反応関数<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<p>インパルス反応関数とは，あるショック（<span class="math notranslate nohighlight">\(u_t\)</span>もしくは<span class="math notranslate nohighlight">\(v_t\)</span>）が一定期間（例えば，１期間のみ）発生した場合，<code class="docutils literal notranslate"><span class="pre">y_t</span></code>と<code class="docutils literal notranslate"><span class="pre">p_t</span></code>がどのように変化するかを示す時系列のグラフ</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+p_{t}&amp;=hp_{t-1}+h\left(a u_{t}+v_{t}\right)\tag{AS曲線}\\
+y_t&amp;=-cp_t + u_t\tag{AD曲線}
+\end{align*}
+\end{split}\]</div>
+<p><code class="docutils literal notranslate"><span class="pre">adas_model()</span></code>関数と異なる主な箇所は<code class="docutils literal notranslate"><span class="pre">&lt;---</span> <span class="pre">changed/added</span></code>で示す。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_period_impulse</span><span class="p">(</span><span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_after</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">ahat</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">chat</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;引数</span>
+<span class="sd">        u: AD曲線へのショックの大きさ（デフォルト：0）</span>
+<span class="sd">        v: AS曲線へのショックの大きさ（デフォルト：0）</span>
+<span class="sd">        n_after: ショック発生後の期間（デフォルト：20）</span>
+<span class="sd">        a: aの値（デフォルト：ahat）</span>
+<span class="sd">        c: cの値（デフォルト：chat）</span>
+<span class="sd">    戻り値：</span>
+<span class="sd">        y, p, u, vのDataFrame</span>
+
+<span class="sd">    * 最初の３期間はショックゼロ&quot;&quot;&quot;</span>
+
+    <span class="c1"># ========== pの差分方程式の右辺 ==========</span>
+    <span class="k">def</span> <span class="nf">price_func</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>        <span class="c1"># &lt;--- changed</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">h</span><span class="o">*</span><span class="n">p</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">u</span> <span class="o">+</span> <span class="n">v</span><span class="p">)</span>    <span class="c1"># &lt;--- changed</span>
+        
+    <span class="c1"># ========== forループのアップデート用変数 ==========</span>
+    <span class="c1"># yのアップデート用の変数は必要ない</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># 最初は定常状態に設定</span>
+    
+    <span class="c1"># ========== 結果を格納するリストの作成 ==========</span>
+    <span class="c1"># 最初の３つの要素は定常状態に設定</span>
+    <span class="n">y_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span>     <span class="c1"># &lt;--- changed</span>
+    <span class="n">p_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span>     <span class="c1"># &lt;--- changed</span>
+    <span class="n">u_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span>     <span class="c1"># &lt;--- added</span>
+    <span class="n">v_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span>     <span class="c1"># &lt;--- added</span>
+
+    <span class="c1"># ========== ショック発生時 ==========</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">price_func</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>   <span class="c1"># &lt;--- added</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="o">-</span> <span class="n">c</span><span class="o">*</span><span class="n">p</span> <span class="o">+</span> <span class="n">u</span>             <span class="c1"># &lt;--- added</span>
+        
+    <span class="n">y_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>          <span class="c1"># &lt;--- added</span>
+    <span class="n">p_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>          <span class="c1"># &lt;--- added</span>
+    <span class="n">u_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>          <span class="c1"># &lt;--- added</span>
+    <span class="n">v_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>          <span class="c1"># &lt;--- added</span>
+        
+    <span class="c1"># ========== ショック後 ==========</span>
+    <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>                  <span class="c1"># &lt;--- added</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_after</span><span class="p">):</span>     <span class="c1"># &lt;--- changed</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">price_func</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>  <span class="c1"># &lt;--- changed</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="o">-</span> <span class="n">c</span><span class="o">*</span><span class="n">p</span> <span class="o">+</span> <span class="n">u</span>            <span class="c1"># &lt;--- changed</span>
+
+        <span class="n">y_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">p_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="n">u_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>      <span class="c1"># &lt;--- added</span>
+        <span class="n">v_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>      <span class="c1"># &lt;--- added</span>
+    
+    <span class="c1"># 変数の辞書</span>
+    <span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="n">y_list</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">:</span><span class="n">p_list</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">:</span><span class="n">u_list</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span><span class="n">v_list</span><span class="p">}</span>  <span class="c1"># &lt;--- changed</span>
+    
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dic</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="v-t">
+<h3>総供給ショック（<span class="math notranslate nohighlight">\(v_t\)</span>）<a class="headerlink" href="#v-t" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_period_impulse</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/12_slides_55_0.png" src="_images/12_slides_55_0.png" />
+</div>
+</div>
+<img src="./figure/adas1.jpeg" width="60%"></section>
+<section id="u-t">
+<h3>総需要ショック（<span class="math notranslate nohighlight">\(u_t\)</span>）<a class="headerlink" href="#u-t" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_period_impulse</span><span class="p">(</span><span class="n">u</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/12_slides_58_0.png" src="_images/12_slides_58_0.png" />
+</div>
+</div>
+<img src="./figure/adas2.jpeg" width="60%"></section>
+<section id="id8">
+<h3>総供給ショック＋総需要ショック<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_period_impulse</span><span class="p">(</span><span class="n">u</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/12_slides_61_0.png" src="_images/12_slides_61_0.png" />
+</div>
+</div>
+<img src="./figure/adas3.jpeg" width="60%"></section>
+</section>
+<section id="id9">
+<h2>確率的シミュレーション<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
+<p>毎期<code class="docutils literal notranslate"><span class="pre">u</span></code>，<code class="docutils literal notranslate"><span class="pre">v</span></code>にランダムな値を割り当てシミュレーションをおこなう。</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(u_t\sim\text{Normal}(0,\sigma_u^2)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(v_t\sim\text{Normal}(0,\sigma_v^2)\)</span></p></li>
+</ul>
+<p>ここで
+$<span class="math notranslate nohighlight">\(
+\sigma_u=\text{u_std},
+\qquad\quad
+\sigma_v=\text{v_std}
+\)</span>$</p>
+<p><code class="docutils literal notranslate"><span class="pre">one_period_impulse()</span></code>関数と異なる主な箇所は<code class="docutils literal notranslate"><span class="pre">&lt;---</span> <span class="pre">changed/added</span></code>で示す。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;&quot;&quot;引数
+    u: AD曲線へのショックの大きさ（デフォルト：0）
+    v: AS曲線へのショックの大きさ（デフォルト：0）
+    n_after: ショック発生後の期間（デフォルト：20）
+    a: aの値（デフォルト：ahat）
+    c: cの値（デフォルト：chat）
+戻り値：
+    y, p, u, vのDataFrame
+
+* 最初の３期間はショックゼロ&quot;&quot;&quot;
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stochastic_sim</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">ahat</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">chat</span><span class="p">,</span> <span class="n">ustd</span><span class="o">=</span><span class="n">u_std</span><span class="p">,</span> <span class="n">vstd</span><span class="o">=</span><span class="n">v_std</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;引数</span>
+<span class="sd">        n: シミュレーションの回数（デフォルト：100）    &lt;--- added</span>
+<span class="sd">        a: aの値（デフォルト：ahat）</span>
+<span class="sd">        c: cの値（デフォルト：chat）</span>
+<span class="sd">        ustd: 需要ショックの分散（デフォルト：u_var）  &lt;--- changed</span>
+<span class="sd">        vstd: 供給ショックの分散（デフォルト：v_var）) &lt;--- changed</span>
+<span class="sd">    戻り値：</span>
+<span class="sd">        y, p, u, vのDataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="c1"># ========== pの差分方程式の右辺 ==========</span>
+    <span class="k">def</span> <span class="nf">price_func</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">h</span><span class="o">*</span><span class="n">p</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">u</span> <span class="o">+</span> <span class="n">v</span><span class="p">)</span>
+    
+    <span class="c1"># ========== forループのアップデート用変数 ==========</span>
+    <span class="c1"># yのアップデート用の変数は必要ない</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># 最初は定常状態に設定</span>
+
+    <span class="c1"># ========== 結果を格納するリストの作成 ==========</span>
+    <span class="n">y_list</span> <span class="o">=</span> <span class="p">[]</span>    <span class="c1"># &lt;--- changed</span>
+    <span class="n">p_list</span> <span class="o">=</span> <span class="p">[]</span>    <span class="c1"># &lt;--- changed</span>
+    <span class="n">u_list</span> <span class="o">=</span> <span class="p">[]</span>    <span class="c1"># &lt;--- changed</span>
+    <span class="n">v_list</span> <span class="o">=</span> <span class="p">[]</span>    <span class="c1"># &lt;--- changed</span>
+
+    <span class="c1"># ========== ループ計算 ==========</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>    <span class="c1"># &lt;--- added</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>               <span class="c1"># &lt;--- changed</span>
+        
+        <span class="c1"># ADのショック項</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ustd</span><span class="p">)</span>      <span class="c1"># &lt;--- added</span>
+
+        <span class="c1"># ASのショック項</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">vstd</span><span class="p">)</span>      <span class="c1"># &lt;--- added</span>
+        
+        <span class="n">p</span> <span class="o">=</span> <span class="n">price_func</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="o">-</span> <span class="n">c</span><span class="o">*</span><span class="n">p</span> <span class="o">+</span> <span class="n">u</span>
+            
+        <span class="n">y_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">p_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="n">u_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+        <span class="n">v_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            
+    <span class="c1"># 変数の辞書の作成</span>
+    <span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="n">y_list</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">:</span><span class="n">p_list</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">:</span><span class="n">u_list</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span><span class="n">v_list</span><span class="p">}</span>
+
+    <span class="c1"># DataFrameを返す</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dic</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span> <span class="o">=</span> <span class="n">stochastic_sim</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/12_slides_67_0.png" src="_images/12_slides_67_0.png" />
+</div>
+</div>
+</section>
+<section id="id10">
+<h2>データの特徴１〜３を再現できるか<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h2>
+<p>統計量の計算のために<code class="docutils literal notranslate"><span class="pre">n=1_000_000</span></code>を使う。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span> <span class="o">=</span> <span class="n">stochastic_sim</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="gdp">
+<h3>GDPと価格水準の％乖離の標準偏差<a class="headerlink" href="#gdp" title="Permalink to this headline">#</a></h3>
+<p>データの値</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;GDPのトレンドからの％乖離の標準偏差：</span><span class="si">{</span><span class="n">y_std</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;デフレータのトレンドからの％乖離の標準偏差：</span><span class="si">{</span><span class="n">p_std</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GDPのトレンドからの％乖離の標準偏差：0.01477
+デフレータのトレンドからの％乖離の標準偏差：0.00696
+</pre></div>
+</div>
+</div>
+</div>
+<p>シミュレーションの結果</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;p&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">の標準偏差:</span><span class="si">{</span><span class="n">sim</span><span class="p">[</span><span class="n">value</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>yの標準偏差:0.01355
+pの標準偏差:0.01131
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id11">
+<h3>自己相関係数<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<p>データの値</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;GDPのトレンドからの％乖離の自己相関係数：</span><span class="si">{</span><span class="n">y_autocorr</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;デフレータのトレンドからの％乖離の自己相関係数：</span><span class="si">{</span><span class="n">p_autocorr</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GDPのトレンドからの％乖離の自己相関係数：0.681
+デフレータのトレンドからの％乖離の自己相関係数：0.829
+</pre></div>
+</div>
+</div>
+</div>
+<p>シミュレーションの結果</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;p&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">sim</span><span class="p">[</span><span class="n">value</span><span class="p">]</span><span class="o">.</span><span class="n">autocorr</span><span class="p">()</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>y:0.076
+p:0.801
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="py">
+<h3><code class="docutils literal notranslate"><span class="pre">p</span></code>と<code class="docutils literal notranslate"><span class="pre">y</span></code>の％乖離の相関係数<a class="headerlink" href="#py" title="Permalink to this headline">#</a></h3>
+<p>データの値</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;gdp_cycle&#39;</span><span class="p">,</span> <span class="s1">&#39;deflator_cycle&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.23397833650523714
+</pre></div>
+</div>
+</div>
+</div>
+<p>シミュレーションの結果</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span><span class="p">[[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.1689572776374602
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id12">
+<h3>結果のまとめ<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>GDP標準偏差</p></th>
+<th class="head"><p>デフレータの標準偏差</p></th>
+<th class="head"><p>GDP自己相関係数</p></th>
+<th class="head"><p>デフレータの自己相関係数</p></th>
+<th class="head"><p>GDPとデフレータの相関係数</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>データ</p></td>
+<td><p>0.01477</p></td>
+<td><p>0.00696</p></td>
+<td><p>0.681</p></td>
+<td><p>0.829</p></td>
+<td><p>-0.234</p></td>
+</tr>
+<tr class="row-odd"><td><p>WNショック</p></td>
+<td><p>0.01356</p></td>
+<td><p>0.01128</p></td>
+<td><p>0.075</p></td>
+<td><p>0.800</p></td>
+<td><p>-0.166</p></td>
+</tr>
+<tr class="row-even"><td><p>AR(1)ショック</p></td>
+<td><p>0.01252</p></td>
+<td><p>0.01707</p></td>
+<td><p>0.649</p></td>
+<td><p>0.931</p></td>
+<td><p>-0.292</p></td>
+</tr>
+<tr class="row-odd"><td><p>状態空間モデル</p></td>
+<td><p>0.01462</p></td>
+<td><p>0.00675</p></td>
+<td><p>0.675</p></td>
+<td><p>0.850</p></td>
+<td><p>-0.229</p></td>
+</tr>
+</tbody>
+</table>
+<p>捉えることができていないデータの特徴もあるが，全く的外れな結果ではない。</p>
+</section>
+<section id="ar-1">
+<h3>総需要・総供給ショックが<code class="docutils literal notranslate"><span class="pre">AR(1)</span></code>の場合<a class="headerlink" href="#ar-1" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>ホワイト・ノイズは前期のショックと今期のショックは何の関係もない独立を意味する。</p></li>
+<li><p>ある程度の<strong>持続性</strong>が存在すると想定できる。</p>
+<ul>
+<li><p>政府：増税を実施すると，１四半期後に減税するような行動は取らない。少なくともある期間，政策を一貫して実施することになる。</p></li>
+<li><p>投資：１四半期毎に企業は投資をコロコロと変えるような行動はしない。</p></li>
+<li><p>消費：嗜好の変化も需要ショックとして現れるが，ファッションで今季は赤が流行り，１四半期後には青が流行るということではない。</p></li>
+<li><p>総供給ショック（例えば，オイルショックやウクライナでの戦争によるサプライ・チェーン問題）も同じように考えることができる。</p></li>
+</ul>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+u_t&amp;=\rho_u u_{t-1}+e^u_t,\qquad e^u_t\sim\text{WN}(0,\sigma_{eu}^2)\\
+v_t&amp;=\rho_v v_{t-1}+e^v_t,\qquad e^v_t\sim\text{WN}(0,\sigma_{ev}^2)
+\end{align*}
+\end{split}\]</div>
+<p>推定するパラメータ：</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, <span class="math notranslate nohighlight">\(\rho_u\)</span>，<span class="math notranslate nohighlight">\(\rho_v\)</span>，<span class="math notranslate nohighlight">\(\sigma_{eu}^2\)</span>，<span class="math notranslate nohighlight">\(\sigma_{ev}^2\)</span></p></li>
+</ul>
+<p>このように計算すると次の値となる。</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\hat{\rho}_u=0.688\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{\rho}_v=0.313\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{\sigma}_{eu}=0.01042\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{\sigma}_{ev}=0.00604\)</span></p></li>
+</ul>
+</section>
+<section id="adas-2">
+<h3>ADASモデルの評価：２つの推論方法<a class="headerlink" href="#adas-2" title="Permalink to this headline">#</a></h3>
+<section id="inductive-inference">
+<h4>帰納的推論（inductive inference）<a class="headerlink" href="#inductive-inference" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>真のモデルが存在するという前提の下でデータを使い推定するモデルの蓋然性を検討する手法</p></li>
+<li><p>典型的な例として，計量経済分析</p></li>
+<li><p>推定されたモデルは，帰納的推論の<strong>アウトプット</strong>
+　
+<br>
+　
+<img src="./figure/inductive2.png" width="70%"></p></li>
+</ul>
+</section>
+<section id="deductive-inference">
+<h4>演繹的推論（deductive inference）<a class="headerlink" href="#deductive-inference" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>モデルは<strong>インプット</strong></p></li>
+<li><p>モデルを「装置」として使い，理論の含意に関して推論する</p>
+<ul>
+<li><p>例えば，AD-ASモデルで比較静学をおこない，外生変数の定性的な効果を検討する場合が当てはまる。</p></li>
+</ul>
+</li>
+<li><p>経済モデルは複雑な経済を抽象化した考え方に過ぎず，「間違った」モデルである。</p>
+<ul>
+<li><p>例えば，消費者モデル：根本的な側面を捉えているだろうが，全てを説明はできない。</p></li>
+<li><p>AD-ASモデルが真のモデルかどうかを判断しようということではない。</p></li>
+<li><p>モデルは地図のようなものであり，目的に沿ったものであれば良い。完璧でなくても良い。</p></li>
+</ul>
+</li>
+</ul>
+<br>
+　
+<img src="./figure/deductive.png" width="70%">
+　
+<br><p>AD-ASモデルをインプット（「装置」）として使い<strong>定量的</strong>な問を検討する。</p>
+</section>
+</section>
+</section>
+<section id="id13">
+<h2>定量的な問<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>GDPと価格水準の％乖離の変動は，何パーセントが需要ショックにより引き起こされ，何パーセントが供給ショックに起因するのか？</p>
+</div></blockquote>
+<section id="id14">
+<h3>予測誤差<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h3>
+<p>カリブレーションをおこなった際の推定式を考えよう。</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+y_{t} &amp;= -chp_{t-1} + e_{yt}\qquad e_{yt}\equiv h(u_{t}-cv_{t})\\
+p_{t}&amp;=hp_{t-1} + e_{pt}\qquad e_{pt}\equiv h\left(a u_{t}+v_{t}\right)
+\end{align*}
+\end{split}\]</div>
+<p>今期が<code class="docutils literal notranslate"><span class="pre">t-1</span></code>期とし，<span class="math notranslate nohighlight">\(x_{t-1}\)</span>は既に実現したとしよう。<code class="docutils literal notranslate"><span class="pre">t</span></code>期の変数は実現前の将来の変数である。ここで，実現値<span class="math notranslate nohighlight">\(x_t\)</span>を所与として<code class="docutils literal notranslate"><span class="pre">t</span></code>期の変数を予測するとしよう。予測値は</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\text{E}_{t-1}(y_{t}) &amp;= -chp_{t-1}
+\qquad\because \text{E}_{t-1}(e_{yt})=0
+\\
+\text{E}_{t-1}(p_{t})&amp;=hp_{t-1}
+\qquad\because \text{E}_{t-1}(e_{pt})=0
+\end{align*}
+\end{split}\]</div>
+<p>従って，予測誤差は</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+y_{t} - \text{E}_{t-1}(y_{t})&amp;= e_{yt}\\
+p_{t}- \text{E}_{t-1}(p_{t})&amp;= e_{pt}
+\end{align*}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>予測誤差は総需要ショックと総供給ショックによって発生した<span class="math notranslate nohighlight">\(y_t\)</span>と<span class="math notranslate nohighlight">\(p_t\)</span>の変動を捉えており，両方の影響が混在する。</p></li>
+</ul>
+</section>
+<section id="id15">
+<h3>予測誤差の分散分解：考え方<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>ショックによって引き起こされた景気循環（<span class="math notranslate nohighlight">\(y_t\)</span>と<span class="math notranslate nohighlight">\(p_t\)</span>のトレンドからの％乖離）を<span class="math notranslate nohighlight">\(e_{yt}\)</span>と<span class="math notranslate nohighlight">\(e_{pt}\)</span>の<strong>分散</strong>として捉える。</p></li>
+<li><p><span class="math notranslate nohighlight">\(e_{yt}\)</span>と<span class="math notranslate nohighlight">\(e_{pt}\)</span>の分散を総需要ショックと総供給ショックに起因する分散に分解する。</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\text{Var}(e_{xt})=\text{Var}(e_{xt}|u_t)+\text{Var}(e_{xt}|v_t)
+\qquad
+x_t=y_t,p_t
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\text{Var}(e_{xt})\)</span>：<span class="math notranslate nohighlight">\(x_t\)</span>の分散</p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{Var}(e_{xt}|u_t)\)</span>：総需要ショック（<span class="math notranslate nohighlight">\(u_t\)</span>）に起因する<span class="math notranslate nohighlight">\(x_t\)</span>の分散</p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{Var}(e_{xt}|v_t)\)</span>：総供給ショック（<span class="math notranslate nohighlight">\(v_t\)</span>）に起因する<span class="math notranslate nohighlight">\(x_t\)</span>の分散</p></li>
+</ul>
+<p>この関係を使うと</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\left(
+\begin{split}
+&amp;\text{総需要ショックによる}\\
+&amp;x_t\text{の変動の割合}
+\end{split}
+\right)
+&amp;=
+\frac{\text{Var}(e_{xt}|u_t)}{\text{Var}(e_{xt})},
+\qquad
+x_t=y_t,p_t
+\\
+\left(
+\begin{split}
+&amp;\text{総供給ショックによる}\\
+&amp;x_t\text{の変動の割合}
+\end{split}
+\right)
+&amp;=
+\frac{\text{Var}(e_{xt}|v_t)}{\text{Var}(e_{xt})},
+\qquad
+x_t=y_t,p_t
+\end{align*}
+\end{split}\]</div>
+<p>それぞれの項を計算し<strong>量的な問い</strong>を考察する。</p>
+</section>
+<section id="id16">
+<h3>GDPの％乖離<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\left(
+\begin{split}
+&amp;\text{需要ショックによる}\\
+&amp;y_t\text{の変動の割合}
+\end{split}
+\right)
+&amp;
+=\frac{\sigma_u^2-c\sigma_{uv}}
+    {\sigma_u^2+
+    c^2\sigma_v^2-
+    2c\sigma_{uv}}
+\tag{ADshockY}
+\end{align*}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\left(
+\begin{split}
+&amp;\text{供給ショックによる}\\
+&amp;y_t\text{の変動の割合}
+\end{split}
+\right)
+&amp;
+=\frac{c^2\sigma_v^2-c\sigma_{uv}}
+    {\sigma_u^2+
+    c^2\sigma_v^2-
+    2c\sigma_{uv}}
+\tag{ASshockY}
+\end{align*}
+\end{split}\]</div>
+<p>導出は授業ノートブックを参照</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 式(ADshockY)と(ADshockP)の分母</span>
+<span class="n">denominator_y</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">var</span><span class="p">()</span> <span class="o">+</span> <span class="n">chat</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">vt</span><span class="o">.</span><span class="n">var</span><span class="p">()</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">chat</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">ut</span><span class="p">,</span><span class="n">vt</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 式(ADshockY)の分子</span>
+<span class="n">numerator_y</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">var</span><span class="p">()</span> <span class="o">-</span> <span class="n">chat</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">ut</span><span class="p">,</span><span class="n">vt</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ad_shock_on_y</span> <span class="o">=</span> <span class="n">numerator_y</span> <span class="o">/</span> <span class="n">denominator_y</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;GDPの％乖離の</span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">ad_shock_on_y</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">％は需要ショックに起因する。&#39;</span>  <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GDPの％乖離の79.3％は需要ショックに起因する。
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;GDPの％乖離の</span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">ad_shock_on_y</span><span class="p">)</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">％は供給ショックに起因する。&#39;</span>  <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GDPの％乖離の20.7％は供給ショックに起因する。
+</pre></div>
+</div>
+</div>
+</div>
+<p>GDPの％乖離に対しては総需要ショックが相対的に大きな影響を及ぼしている。</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(0.0144\approx\sigma_u&gt;\sigma_v\approx 0.0066\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(c\approx 0.680\)</span>が大きな役割：総需要曲線の傾きは <span class="math notranslate nohighlight">\(1/c\approx 1.47\)</span></p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(1/c\)</span> が大きい場合，総需要曲線の傾きは急　→　総供給曲線が動くと<span class="math notranslate nohighlight">\(y_t\)</span>の動きは小さい　→　総供給ショックのインパクトは小さくなる</p></li>
+<li><p><span class="math notranslate nohighlight">\(1/c\)</span> が小さい場合，総需要曲線の傾きは緩やか　→　総供給曲線が動くと<span class="math notranslate nohighlight">\(y_t\)</span>の動きは大きい　→　総供給ショックのインパクトは大きくなる</p></li>
+</ul>
+</li>
+</ul>
+<p><span class="math notranslate nohighlight">\(1/c&gt;1\)</span>　→　総供給ショックのインパクトは小さくなり，相対的に総需要ショックのインパクトは大きくなっている</p>
+<img src="./figure/adas4.jpeg" width="60%"></section>
+<section id="id17">
+<h3>価格水準の％乖離<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\left(
+\begin{split}
+&amp;\text{需要ショックによる}\\
+&amp;p_t\text{の変動の割合}
+\end{split}
+\right)
+&amp;
+=\frac{a^2\sigma_u^2+a\sigma_{uv}}
+    {a^2\sigma_u^2+
+    \sigma_v^2+
+    2a\sigma_{uv}}
+\tag{ADshockP}
+\end{align*}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\left(
+\begin{split}
+&amp;\text{供給ショックによる}\\
+&amp;p_t\text{の変動の割合}
+\end{split}
+\right)
+&amp;
+=\frac{\sigma_v^2+a\sigma_{uv}}
+    {a^2\sigma_u^2+
+    \sigma_v^2+
+    2a\sigma_{uv}}
+\tag{ASshockP}
+\end{align*}
+\end{split}\]</div>
+<p>導出は講義ノートブックを参照</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 式(ADshockP)と(ASshockP)の分母</span>
+<span class="n">denominator_p</span> <span class="o">=</span> <span class="n">ahat</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">ut</span><span class="o">.</span><span class="n">var</span><span class="p">()</span> <span class="o">+</span> <span class="n">vt</span><span class="o">.</span><span class="n">var</span><span class="p">()</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ahat</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">ut</span><span class="p">,</span><span class="n">vt</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 式(ADshockP)の分子</span>
+<span class="n">numerator_p</span> <span class="o">=</span> <span class="n">ahat</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">ut</span><span class="o">.</span><span class="n">var</span><span class="p">()</span> <span class="o">+</span> <span class="n">ahat</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">ut</span><span class="p">,</span><span class="n">vt</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ad_shock_on_p</span> <span class="o">=</span> <span class="n">numerator_p</span> <span class="o">/</span> <span class="n">denominator_p</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;価格水準の％乖離の</span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">ad_shock_on_p</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">％は需要ショックに起因する。&#39;</span>  <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>価格水準の％乖離の14.1％は需要ショックに起因する。
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;価格水準の％乖離の</span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">ad_shock_on_p</span><span class="p">)</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">％は供給ショックに起因する。&#39;</span>  <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>価格水準の％乖離の85.9％は供給ショックに起因する。
+</pre></div>
+</div>
+</div>
+</div>
+<p>デフレーターの％乖離に対しては総供給ショックが相対的に大きな影響を及ぼしている。</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(0.0144\approx\sigma_u&gt;\sigma_v\approx 0.0066\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(a\approx 0.367\)</span>が大きな役割：総供給曲線の傾きは <span class="math notranslate nohighlight">\(a\)</span></p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(a\)</span> が小さい場合，総供給曲線の傾きは緩やか　→　総需要曲線が動くと<span class="math notranslate nohighlight">\(y_t\)</span>の動きは大きいが，<span class="math notranslate nohighlight">\(p_t\)</span>の動きは小さい</p></li>
+<li><p><span class="math notranslate nohighlight">\(a\)</span> が大きい場合，総供給曲線の傾きは急　→　総需要曲線が動くと<span class="math notranslate nohighlight">\(y_t\)</span>の動きは小さいが，<span class="math notranslate nohighlight">\(p_t\)</span>の動きは大きい</p></li>
+</ul>
+</li>
+</ul>
+<p><span class="math notranslate nohighlight">\(a&lt;1\)</span>　→　総供給ショックのインパクトは大きくなり，相対的に総需要ショックのインパクトは小さくなっている</p>
+<img src="./figure/adas5.jpeg" width="60%"></section>
+</section>
+<section id="id18">
+<h2>まとめ<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax_</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;gdp_cycle&#39;</span><span class="p">,</span><span class="s1">&#39;deflator_cycle&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">ax_</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/12_slides_117_0.png" src="_images/12_slides_117_0.png" />
+</div>
+</div>
+<p>このプロットを眺めるだけでは，定量的な問いに答えることはできない。AD-ASモデルを「装置」として用いて，「スイッチ」を調整することにより，結果が数字として現れてくることになる。</p>
+<p>体重計の例をもう一度考えてみよう。今度は，AさんとBさんが作る体重計である。</p>
+<ul class="simple">
+<li><p>Aさんの体重計は単純な装置</p></li>
+<li><p>Bさんの技術は高く，設計図は洗練され使う材料もより質が高い</p></li>
+</ul>
+<p>その差は精度の違いとして現れることになるだろう。</p>
+<p>マクロ経済モデルも同じである。AD-ASモデルは，研究や政策議論で使われるモデルと比べると単純なモデルであり，それが故に定量的な問に対しての答えも精度が低いものとならざるを得ない。大学院で学ぶDSGEモデルや構造VARモデルなどはより洗練された「装置」であり，AD-ASモデルよりも精度が高いと期待される。</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "latest"
+        },
+        kernelOptions: {
+            kernelName: "latest",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'latest'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="markdown-notebooks.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Notebooks with MyST Markdown</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Jupyter Book Community<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
